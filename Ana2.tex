@@ -1,0 +1,235 @@
+\documentclass[a4paper, 11pt]{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage["ansinew"]{inputenc}
+\usepackage{amssymb}
+\usepackage{mathrsfs} 
+\begin{document}
+
+\begin{center}
+\huge{ Analysis II}
+\end{center}
+
+\begin{flushleft}
+\section{Topologie metrischer Räume}
+\subsection{Metrische/normierte Räume}
+\subsubsection{Metrik}
+Sei $X$ eine Menge. Die Metrik auf $X$ ist \\
+$d:X\times X\to\mathbb{R}$\\
+$(x,y)\mapsto d(x,y)$ mit:\\
+1. $d(x,y)=0 \Leftrightarrow x=y$\\
+2. $d(x,y)=d(y,x)$\\
+3. $d(x,z)\leq d(x,y) + d(y,z)$\\
+für alle $x,y\in X$.\\
+$(X,d)$ heißt metrischer Raum aus einer Menge $X$ und einer Metrik $d$ auf $X$.
+\subsubsection{Normierte Vektorräume}
+Sei $V$ ein Vektorraum über $\mathbb{R}$ oder $\mathbb{C}$. Die Norm auf $V$ ist\\
+$||$ $||:V\to\mathbb{R}, x\mapsto ||x||$ mit:\\
+1. $||x||=0 \Leftrightarrow x=0$\\
+2. $||\lambda x||=|\lambda|\cdot ||x||$\\
+3. $||x+y||\leq ||x||+||y||$\\
+Ein normierter Vektorraum $(V, ||$ $||)$ ist ein Vektorraum $V$ mit einer Norm $||$ $||$. 
+\subsubsection{Metrik}
+Sei $(V, ||$ $||)$ ein normierter Vektorraum. Dann ist $d(x,y) = ||x-y||$ eine Metrik auf $V$.
+\subsubsection{Offene Kugel}
+Sei $(X,d)$ ein metrischer Raum, $a\in X$ und $r > 0$. Dann heißt $B_r (a) = \{x\in X:d(a,x) < r\}$ die offene Kugel (Ball) mit Mittelpunkt $a$ und Radius $r$ bzgl. $d$.
+\subsubsection{Umgebung}
+Sei $X$ ein metrischer Raum. $U\subset X$ heißt Umgebung von $x\in X$ falls ein $\epsilon >0$ existiert, so dass $B_\epsilon (x) \subset U$. $B_\epsilon (x)$ heißt $\epsilon$-Umgebung von $x$.
+\subsubsection{Hausdorfsches Trennungsaxiom}
+Sei $X$ ein metrischer Raum. Dann gibt es zu je zwei Punkten $x,y\in X$ Umgebungen $U$ und $V$ sodass $U \cap V = \emptyset$.
+\subsubsection{Offene Mengen}
+Eine Teilmenge $U$ eines metrischen Raums $X$ heißt offen wenn für alle $x\in U$ ein $\epsilon > 0$ existiert so dass $B_\epsilon (x) \subset U$.\\
+\subsubsection{Abgeschlossene Mengen}
+$A$ heißt abgeschlossen wenn $ X \backslash A$ offen ist.
+\subsubsection{Randpunkt}
+Sei $X$ ein metrischer Raum, $Y \subset X$ und $x\in X$. $x$ heißt Randpunkt von $Y$ wenn in jeder Umgebung von $x$ ein Punkt von $Y$ und ein Punkt von $X\backslash Y$ liegt. $\partial Y$ ist die Menge aller Randpunkte von $Y$ und heißt Rand von $Y$.\\
+$Y\backslash \partial Y$ ist offen\\
+$Y \cup\partial Y$ ist abgeschlossen\\
+$\partial Y$ ist abgeschlossen
+\subsubsection{Inneres}
+$Y$ Teilmenge eines metrischen Raums $X$\\
+$Y^{°} = Y \backslash \partial Y$ ist das Innere von $Y$.
+\subsubsection{Abgeschlossene Hülle}
+$\overline{Y} =Y \cup\partial Y$ ist die abgeschlossene Hülle(Abschluss) von $Y$.
+
+\subsection{Topologische Räume}
+\subsubsection{Topologie}
+Sei $X$ eine Menge. Eine Teilmenge $\tau$  von $X$ heißt Topologie, falls\\
+1. $\emptyset$, $X\in X$\\
+2. $U$, $V\in X \Rightarrow U \cap V \in X$ (endliche Schnittmengen)\\
+3. $U_i\in X \rightarrow\bigcup\limits_i U_i \in X$(unendliche Vereinigungen)\\
+$(X,\tau )$ heißt topologischer Raum falls $\tau$ Topologie auf $X$\\
+Eine Menge $U\subset X$ heißt offen falls $U\in \tau$.\\ 
+Eine Menge $V\subset X$ heißt abgeschlossen falls $X\backslash V$ offen ist.\\
+Jede Metrik induziert eine Topologie.
+\subsubsection{Umgebung}
+Sei $(X,\tau )$ topologischer Raum und $x\in X$ ein Punkt. $V$ heißt Umgebung von $x$ falls es eine offene Menge $U\subset X$ gibt so dass $x\in U\subset V$
+
+\subsection{Folgen}
+\subsubsection{Konvergenz von Folgen}
+Sei $X$ ein metrischer Raum und $(x_k )$ eine Folge. $\lim\limits_{k\to\infty} x_k = a$ wenn gilt: Zu jeder Umgebung $U$ von $a$ existiert ein $N\in\mathbb{N}$ so dass $x_k \in U$ für alle $k\geq N$.\\
+Äquivalent zu: Zu jedem $\epsilon > 0$ existiert ein $N\in\mathbb{N}$ so dass $||x_k ,a|| <\epsilon$ für alle $k\geq N$\\
+\vspace{\baselineskip}
+Sei $x_k = (x_{k1},x_{k2},...,x_{kn})$ eine Folge in $\mathbb{R}^n$. $x_k$ konvergiert gegen den Punkt $a=(a_1,a_2,...,a_n)$ wenn für $v=1,2,...,n$ gilt $\lim\limits_{k\to\infty} a_{kv} =a_v$.\\
+($x_k$ konvergiert wenn jede Komponente einzeln konvergiert.)\\
+\vspace{\baselineskip}
+Jede konvergente Folge in einem metrischen Raum ist beschränkt.
+\subsubsection{Abgeschlossenheit}
+Sei $X$ ein metrischer Raum. $A\subset X$ ist genau dann abgeschlossen wenn für jede Folge gilt: Ist $x_k$ eine Folge mit $x_k\in A$ die gegen $x\in X$ konvergiert dann ist $x\in A$.
+\subsubsection{Cauchyfolge}
+Sei $X$ ein metrischer Raum. $x_k$ heißt Cauchyfolge falls gilt: Zu jedem $\epsilon >0$ existiert ein $N\in\mathbb{N}$ so dass $||x_k,x_m||<\epsilon$ für alle $k,m \geq N$.
+In einem metrischen Raum ist jede konvergente Folge eine Cauchyfolge.
+\subsubsection{Vollständigkeit}
+EIn metrischer Raum heißt vollständig wenn in ihm jede Cauchyfolge konvergiert.
+\subsubsection{Durchmesser}
+$diam(A) = \sup \{ ||x,y||:x,y\in A\} $ für eine Teilmenge $A$ eines metrischen Raumes $X$.\\
+Die Menge $A$ heißt beschränkt falls $diam(A) <\infty$.\\
+$A$ ist beschränkt falls ein Punkt $a\in X$ und eine positive reelle Zahl $r>0$ existiert so dass $A\subset B_r (a)$.
+\subsubsection{Schachtelungsprinzip}
+Sei $X$ ein vollständiger metrischer Raum und $A_0\supset A_1 \supset A_2 \supset ...$ eine absteigende Folge nichtleerer abgeschlossener Teilmengen mit $\lim\limits_{k\to\infty} diam(A_k) =0$. Dann gibt es genau einen Punkt $x\in X$ der in allen $A_k$ liegt.
+
+\subsection{Stetige Abbildungen}
+\subsubsection{Stetigkeit}
+Seien $X$ und $Y$ metrische Räume und $f:X\to Y$ eine Abbildung. $f$ heißt stetig im Punkt $a\in X$ falls $\lim\limits_{k\to\infty} f(x) =f(a)$\\ 
+d.h. wenn jede Folge $x_n$ aus $X$ mit $\lim\limits_{n\to\infty} x_n = a$ gilt: $\lim\limits_{n\to\infty} f(x_n) = f(a)$\\
+Komposition, Addition, Multiplikation und Divison zweier stetiger Funktionen ist stetig.\\
+\vspace{\baselineskip}
+$f=(f_1,f_2,...f_n):X\to\mathbb{R}^n$ ist genau dann stetig wenn alle Komponenten $f_v :X\to\mathbb{R}$ stetig sind.
+\subsubsection{$\epsilon -\delta$-Kriterium der Stetigkeit}
+Seien $X$ und $Y$ metrische Räume und $f:X\to Y$ eine Abbildung. $f$ ist genau dann in $a\in X$ stetig wenn zu jedem $\epsilon >0$ ein $\delta >0$ existiert so dass $||f(x),f(a)||<\epsilon$ für alle $x\in X$ mit $||x,a|| <\delta$.
+\subsubsection{Homöomorphismus}
+Seien $X,Y$ metrische Räume. Eine bijektive Abbildung $f:X\to Y$ heißt Homöomorphismus wenn $f$ und $f^{-1}$ stetig ist. Zwei metrische Räume heißen homöomorph wenn einen Homöomorphismus $f:X\to Y$ gibt.
+\subsubsection{Stetigkeit}
+Seien $X$ und $Y$ topologische Räume und $f:X\to Y$ eine Abbildung. $f$ heißt stetig im Punkt $a\in X$ wenn zu jeder Umgebung $V$ von $f(a)$ eine Umgebung $U$  von $a$ existiert mit $f(U) \subset V$.\\
+$f$ ist auf ganz $X$ stetig wenn das Urbild $f^{-1} (V)$ jeder offenen Menge $V\in Y$ offen in $X$ ist.\\
+$f$ ist auf ganz $X$ stetig wenn das Urbild $f^{-1} (V)$ jeder abgeschlossenen Menge $V\in Y$ abgeschlossen in $X$ ist.
+\subsubsection{Gleichmäßige Stetigkeit}
+Seien $X$ und $Y$ topologische Räume und $f:X\to Y$ eine Abbildung. $f$ heißt gleichmäßig stetig wenn zu jedem $\epsilon > 0$ ein $\delta >0$ existiert so dass $ ||f(x),f(y)||<\epsilon$ für alle $x,y\in X$ mit $||x,y||<\delta$\\
+\subsection{Funktionenfolgen}
+\subsubsection{Gleichmäßige Konvergenz von Funktionenfolgen}
+Sei $X$ eine Menge, $Y$ ein metrischer Raum und $f_n :X\to Y$ und $f: X\to Y $ Abbildungen. $f_n$ konvergiert gleichmäßig gegen $f$ falls zu jedem $\epsilon >0$ ein $N \in\mathbb{N}$ existiert so dass $||f_n (x),f(x)|| <\epsilon$ für alle $x\in X$ und für alle $n\geq \mathbb{N}$.
+\subsubsection{Stetige Funktionenfolgen}
+Sei $f_n$ eine Folge stetiger Funktionen die gleichmäßig gegen $f$ konvergiert. Dann ist auch $f$ stetig.
+\subsubsection{Satz von Dini}
+Sei $X$ kompakt und $f_n: X\to\mathbb{R}$ eine monoton wachsende Folge stetiger Funktionen die punktweise gegen eine stetige Funktion $f$ konvergieren. Dann konvergieren sie auch gleichmäßig gegen $f$.
+
+\subsection{Lineare Abbildungen}
+\subsubsection{Stetigkeit}
+Seien $V$ und $W$ normierte Vektorräume über $\mathbb{R}$ oder $\mathbb{C}$ und $A : V\to W$ eine lineare Abbildung. $A$ ist genau dann stetig wenn es eine reelle Konstante gibt so dass $||A(x)||\leq C||x||$ für alle $x\in V$
+\subsubsection{Norm einer lineare Abbildung}
+Seien $V$ und $W$ normierte Vektorräume und $A : V\to W$ eine lineare Abbildung. Dann ist $||A|| = sup\{||A(x)||:x\in V $ mit $ ||x||\leq 1\}$ die Norm von $A$.
+
+\subsection{Kompaktheit}
+\subsubsection{Offene Überdeckung}
+Sei $A$ eine Teilmenge eines metrischen Raumes $X$ und $I$ eine endliche oder unendliche Indexmenge und $(U_i)_{i\in I}$ eine Familie von offenen Teilmengen $U_i \subset X$. Dann ist $(U_i)_{i\in I}$ eine offene Überdeckung von $A$ wenn $A\subset \bigcup\limits_{i\in I}$
+\subsubsection{Kompaktheit}
+Eine Teilmenge $A$ eines metrischen Raumes $X$ heißt kompakt wenn es zu jeder offenen Überdeckung $(U_i)_{i\in I}$ von $A$ endlich viele Indizes $i_1,...,i_k\in I$ gibt so dass $A\subset U_{i_1}\cup U_{i_2}\cup ...\cup U_{i_k}$.\\
+\vspace{\baselineskip}
+Jede kompakte Teilmenge eines metrischen Raumes ist beschränkt und abgeschlossen.\\
+\vspace{\baselineskip}
+Sei $X$ ein metrischer Raum. $K\subset X$ kompakt und $A\subset K$ abgeschlossen. Dann ist $A$ kompakt.\\
+\vspace{\baselineskip}
+Sei $X$ ein metrischer und $x_n$ eine Folge in $X$ die gegen $a$ konvergiert. Dann ist $A=\{x_n :n\in\mathbb{N}\} \cup\{a\}$ kompakt
+\subsubsection{Heine-Borel}
+Eine Teilmenge $A\subset \mathbb{R}^n $ ist genau dann kompakt wenn sie abgeschlossen und beschränkt ist.
+\subsubsection{Stetige Abbildungen}
+Seien $X,Y$ metrische Räume und $f:X\to Y$ eine stetige Abbildung. Ist $K\subset X$ kompakt so ist auch $f(K) \subset Y$ kompakt.\\
+Sei $X$ ein kompakter metrischer RAum und $f:X\to Y $ eine stetige Abbildung. Dann ist $f$ beschränkt und nimmt ihr Maximum und Minimum an.
+\subsubsection{Bolzano-Weierstraß}
+Sei $A$ eine kompakte Teilmenge eines metrischen Raumes $X$ und $x_n$ eine Folge in $A$. Dann gibt es eine konvergente Teilfolge die gegen einen Punkt in $A$ konvergiert.
+\subsubsection{Approximationssatz von Stone-Weierstraß}
+Sei $A\subset C(K)$ mit:\\
+1. $A$ ist ein reeller Untervektorraum und aus $f,g\in U$ folgt $f\cdot g\in A$\\
+2. $f:x\mapsto 1\in A$\\
+3. Für alle $x,y\in K$ gibt es ein $f\in A$ mit $f(x)\neq f(y)$. ($A$ trennt Punkte in $K$)\\
+Dann liegt $A$ dicht in $C(K)$ ($\overline{A}=C(K)$).$\Leftrightarrow$ Für alle $g\in C(K)$ und $\epsilon >0$ existiert ein $f\in A$ mit $||f(x)-g(x)||<\epsilon$.
+
+\section{Kurven}
+\subsection{Kurven}
+Eine Kurve im $\mathbb{R}^n$ ist eine stetige Abbildung $f:I\to\mathbb{R}^n$ wobei $I\subset \mathbb{R}$.\\
+$f=(f_1,f_2,...,f_n)$ mit $f_k:I\to\mathbb{R}^n$ stetig.\\
+Die Kurve heißt differenzierbar (stetig differenzierbar) wenn alle Funktionen $f_k$ differenzierbar(stetig differenzierbar) sind.
+\subsubsection{Tangentialvektor}
+Sei $f$ eine differenzierbare Kurve. Für $t\in I$ heißt $f'(t)=(f_1'(t),...f_n'(t))\in\mathbb{R}^n$ Tangentialvektor der Kurve $f$ zum Parameterwert $t$
+\subsubsection{Doppelpunkt}
+$x$ heißt Doppelpunkt falls $f(t_1)=f(t_2)=x$ für $t_1\neq t_2$
+\subsubsection{Reguläre Kurve}
+Sei $f$ eine stetig differenzierbare Kurve. Die Kurve heißt regulär(nicht singulär) falls $f'(t)\neq 0$ für alle $t\in I$. Ein Parameterwert $t\in I$ mit $f'(t)=0$ heißt singulär.
+\subsubsection{Schnittwinkel}
+Seien $f:I_1\to\mathbb{R}^n,g:I_2\to\mathbb{R}^n$ reguläre Kurven. Für $t_1\in I_1, t_2\in I_2$ und $f(t_1)=g(t_2)$ ist der Winkel zwischen den Tangentialvektoren: $cos(\alpha ) =\frac{<f'(t_1),g'(t_2)>}{||f'(t_1,f'(t_2)||}$ mit $\alpha\in [0,\pi ]$
+\subsubsection{Rektifizierbar}
+Eine Kurve $f: [a,b]\to\mathbb{R}^n$ heißt rektifizierbar mit der Länge L wenn zu jedem $\epsilon >0$ ein $\delta >0$ existiert so dass für jede Unterteilung $a=t_0<t_1<...<t_k=b$ mit der Feinheit kleiner $\delta$ gilt: $|p_f(t_0,...,t_k) -L|<\epsilon$.\\
+$p_f(t_0,...,t_k)=\sum\limits_{i=1}^k ||f(t_i)-f(t_{i-1})||$\\
+Jede stetig differenzierbare Kurve ist rektifizierbar mit $L=\int\limits_a^b ||f'(t)||dt$
+
+\subsection{Partielle Ableitung}
+Sei $U\subset \mathbb{R}^n$ offen. $f:U\to\mathbb{R}$ heißt in $x$ partiell differenzierbar in der i-ten Koordinatenrichtung falls $D_i f(x)=\frac{\partial f(x)}{\partial x_i} = \lim\limits_{h\to 0} \frac{f_i (x +he_i) -f(x)}{h}$ existiert. $f$ heißt partiell differenzierbar wenn $D_i f(x)$ für alle $x\in U$ und alle $i=1,...n$ existiert. $f$ heißt stetig partiell differenzierbar wenn alle $D_i f$ stetig sind.
+\subsubsection{Gradient}
+$grad (f(x))=(\frac{\partial f(x)}{\partial x_1},...\frac{\partial f(x)}{\partial x_n})$
+\subsubsection{Vektorfeld}
+Sei $U\subset \mathbb{R}^n$ offen. Ein Vektorfeld auf $U$ ist eine Abbildung $v:U\to\mathbb {R}^n$. Jedem Punkt $x\in U$ wird ein Vektor $v(x)\in\mathbb{R}^n$ zugeordnet.
+\subsubsection{Divergenz}
+Sei $v=(v_1,...,v_n):U\to\mathbb{R}^n$ ein partiell differenzierbares Vektorfeld. $div(v)=\sum\limits_{i=1}^n \frac{\partial}{\partial x_i} v_i$
+\subsubsection{Satz von Schwarz}
+Sei $U\subset \mathbb{R}^n$ offen und $f:U\to\mathbb{R}$ eine zweimal stetig partiell differenzierbare Funktion. Dann gilt für $a\in U$: $D_jD_if(a)=D_iD_jf(a)$
+\subsubsection{Rotation}
+$rot(v)=(\frac{\partial v_3}{\partial x_2}-\frac{\partial v_2}{\partial x_3},\frac{\partial v_1}{\partial x_3} - \frac{\partial v_3}{\partial x_1} , \frac{\partial v_2}{\partial x_1} - \frac{\partial v_1}{\partial x_2})$ 
+\subsubsection{Laplace Operator}
+Sei $f$ zweimal stetig differenzierbar. $\Delta f=(\frac{\partial^2 f}{\partial x_1^2}+...+\frac{\partial^2 f}{\partial x_n^2})$
+
+\subsection{Totale Differenzierbarkeit}
+Sei $U\subset \mathbb{R}^n$ offen und $f:U\to\mathbb{R}^m$. $f$ heißt in $x$ total differenzierbar falls es eine lineare Abbildung $A: \mathbb{R}^n\to\mathbb{R}^m$ gibt so dass in einer Umgebung von $x$ gilt: $f(x+\xi)=f(x) +A\xi +\varphi (\xi )$ wobei $\varphi$ in einer Umgebung von $0\in\mathbb{R}^n$ definiert ist mit $\lim\limits_{\xi\to 0} \frac{\varphi (\xi )}{||\xi ||} =0$. $A$ ist eindeutig bestimmt durch das Differential.\\
+Jede stetig partiell differenzierbare Funktion ist total differenzierbar.
+\subsubsection{Differential}
+$D(f(x))=(\frac{\partial f_i}{\partial x_j}(x))$ wobei die i-te Zeile der Gradient von $f_i$ ist\\
+Kettenregel: $D((g\circ f)(x)) =D(g(f(x)))\cdot D(f(x))$
+\subsubsection{Richtungsableitung}
+Sei $U\subset \mathbb{R}^n$ offen und $f:U\to\mathbb{R}$ eine Funktion. Sei $x\in U$ ein Punkt und $v\in\mathbb{R}$ ein Vektor mit $||v||=1$. Die Richtungsableitung von $f$ im Punkt $x$ in Richtung $v$ ist $D_v f(x)=\lim\limits_{t\to 0} \frac{f(x+tv)-f(x)}{t}=<v,grad(f(x))>$
+\subsubsection{Mittelwertsatz}
+Ist $f:I\to\mathbb{R}^m$ stetig differenzierbar mit $I\subset\mathbb{R}^n$ und $x+t\xi\in I$ für alle $0\leq t\leq 1$ so gilt:\\
+ $f(x+\xi ) - f(x)= (\int\limits_0^1 Df(x+t \xi )dt)\cdot\xi$
+\subsubsection{Hessesche Matrix}
+Sei $f$ zweimal differenzierbar dann ist $Hess(f(x))=(D_i D_j f(x))$ die Hessesche Matrix.
+\subsubsection{Approximation zweiter Ordnung}
+Sei $f$ zweimal differenzierbar dann gilt: $f(x+\xi ) =f(x)+<a,\xi > +\frac{1}{2}<\xi ,A\xi > +o(||\xi ||^2 )$ wobei $a=grad(f(x))$ und $A=Hess(f(x))$
+
+\subsection{Taylor-Formel}
+Sei $\alpha=(\alpha_1,\alpha_2,...,\alpha_n)\in \mathbb{N}^n$ mit $|\alpha |=\alpha_1+\alpha_2+...+\alpha_n$ und $\alpha !=\alpha_1!\alpha_2!\cdot ...\cdot\alpha_n!$.\\
+Sei $f$ $|\alpha |$-mal stetig differenzierbar mit $D^{\alpha}f=D_1^{\alpha_1}f\cdot D_2^{\alpha_2}f...D_n^{\alpha_n}f$.\\
+Sei $U\subset \mathbb{R}^n$ und $f:U\to\mathbb{R}$ (k+1)-mal stetig differenzierbar und $x+t\xi\in I$ für alle $0\leq t\leq 1$. Dann existiert ein $\Theta\in [0,1]$ so dass $f(x+\xi )=\sum\limits_{|\alpha | \leq k} \frac{D^{\alpha}f(x)}{\alpha !}\xi^{\alpha} + \sum\limits_{|\alpha | = k+1} \frac{D^{\alpha}f(x+\xi )}{\alpha !}\xi^{\alpha}$\\
+\vspace{\baselineskip}
+Sei $f$ k-mal stetig differenzierbar. Dann gilt für jedes $x\in U$: $f(x+\xi )=\sum\limits_{|\alpha | \leq k} \frac{D^{\alpha}f(x)}{\alpha !}\xi^{\alpha} +o(||\xi ||^k )$ für $\xi\to 0$
+
+\subsection{Lokale Extrema}
+$x$ heißt lokales Extremum falls eine Umgebung $V\subset U$ von $x$ existiert so dass $f(x)\geq f(y)$ bzw $f(x)\leq f(y)$ für alle $y\in V$
+\subsubsection{notwendige Bedingung für lokales Extremum}
+Sei $f$ partiell differenzierbar und $x$ ein lokales Extremum dann ist $grad(f(x))=0$
+\subsubsection{Hinreichende Bedingung für lokales Extremum}
+Sei $f$ partiell differenzierbar und $grad(f(x))=0$. \\
+Dann ist $x$ ein Minimum wenn $Hess(f(x))$ positiv definit(alle Eigenwerte positiv).\\
+Dann ist $x$ ein Maximum wenn $Hess(f(x))$ negativ definit(alle Eigenwerte negativ).\\
+Dann ist $x$ kein Extremum  wenn $Hess(f(x))$ indefinit(mind. ein Eigenwerte positiv und ein Eigenwert negativ).
+
+\section{Implizite Funktionen}
+\subsection{Implizite Funktionen}
+Seien $U_1\subset\mathbb{R}^k, U_2\subset\mathbb{R}^m$ offen und $F:U_1\times  U_2\to\mathbb{R}^m,$ $(x,y)\mapsto F(x,y)$ stetig differenzierbar. Sei $(a,b)$ ein Punkt mit $F(a,b)=0$\\
+Sei $\frac{\partial F}{\partial y}=  \left( \begin{array}{ccc}
+\frac{\partial F_1}{\partial y_1} & \cdots & \frac{\partial F_1}{\partial y_m} \\
+\vdots &   & \vdots \\
+\frac{\partial F_m}{\partial y_1} & \cdots & \frac{\partial F_m}{\partial y_m} \end{array} \right)$ im Punkt $(a,b)$ invertierbar. Dann gibt es eine offene Umgebung $V_1\subset U_1$ von $a$ und eine Umgebung $V_2\subset U_2$ von $b$ und eine stetig differenzierbare Abbildung $g:V_1\to V_2$ mit $g(a)=b$ so dass $F(x,g(x))=0$ für alle $x\in V_1$. Ist $(x,y)$ ein Punkt mit $F(x,y)=0$ so ist $y=g(x)$.\\
+\vspace{\baselineskip}
+Bemerkungen:\\
+1. $g$ entsteht durch Auflösen der Gleichung $F(x,y)=0$ nach $y$. \\
+2. Ist $\frac{\partial F}{\partial y}$ in $(a,b)$ invertierbar so ist es auch in einer Umgebung von $(a,b)$ invertierbar.
+3. Ist $\frac{\partial F}{\partial y}$ in $(x,g(x))$ invertierbar so ist $\frac{\partial g}{\partial x}(x)=-(\frac{\partial F}{\partial y}(x,g(x)))^{-1}\cdot\frac{\partial F}{\partial y}(x,g(x))$
+
+\subsubsection{Banachscher Fixpunktsatz}
+Sei $A$ eine abgeschlossene Teilmenge eines Banachraums(vollständig normierter Vektorraum). Sei $\Phi :A\to A$ eine Kontraktion(es gibt eine Konstante $0< \theta <1$ so dass $||\Phi (f) -\Phi (g) ||\leq \theta ||f-g||$ für alle $f,g\in A$)\\
+Dann besitzt $\Phi$ genau einen Fixpunkt($\Phi (f)=f)$.\\
+Für jeden Anfangswert $f_0\in A$ konvergiert $f_k=\Phi (f_{k-1)})$ gegen $f$.
+\subsubsection{Umkehrabbildung}
+Sei $U\subset\mathbb{R}^n$ und $f:W\to\mathbb{R}^n$. Sei $a\in W$ und $b=f(a)$ und $Df(a)$ invertierbar. Dann gibt es eine offene Umgebung $U$ von $a$ und $V$ von $b$ so dass $f$ $U$ bijektiv auf $V$ abbildet und die Umkehrabbildung stetig differenzierbar ist. $D(f^{-1}(b))=(D(f(a)))^{-1}$
+
+
+\end{flushleft}
+\end{document}
